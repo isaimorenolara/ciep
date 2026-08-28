@@ -4,6 +4,7 @@
   var toggle = document.querySelector('.ciep-menu-toggle');
   var closeBtn = document.querySelector('.ciep-menu-close');
   var panel = document.getElementById('ciepMobilePanel');
+  var mastheadCollapseWidth = 1200;
 
   if (!toggle || !panel) {
     return;
@@ -13,7 +14,20 @@
     return panel.classList.contains('is-open');
   }
 
+  var summaries = document.querySelectorAll('.ciep-mobile-summary');
+
+  function closeAllAccordions() {
+    summaries.forEach(function (summary) {
+      var target = document.getElementById(summary.getAttribute('aria-controls'));
+      summary.setAttribute('aria-expanded', 'false');
+      if (target) {
+        target.classList.remove('is-open');
+      }
+    });
+  }
+
   function openMenu() {
+    closeAllAccordions();
     panel.classList.add('is-open');
     document.body.classList.add('ciep-scroll-lock');
     toggle.setAttribute('aria-expanded', 'true');
@@ -45,18 +59,19 @@
   });
 
   window.addEventListener('resize', function () {
-    if (window.innerWidth >= 992 && isOpen()) {
+    if (window.innerWidth >= mastheadCollapseWidth && isOpen()) {
       closeMenu();
     }
   });
 
-  document.querySelectorAll('.ciep-mobile-summary').forEach(function (summary) {
+  summaries.forEach(function (summary) {
     var target = document.getElementById(summary.getAttribute('aria-controls'));
     if (!target) {
       return;
     }
     summary.addEventListener('click', function () {
       var expanded = summary.getAttribute('aria-expanded') === 'true';
+      closeAllAccordions();
       summary.setAttribute('aria-expanded', String(!expanded));
       target.classList.toggle('is-open', !expanded);
     });

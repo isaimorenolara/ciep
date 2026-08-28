@@ -7,13 +7,13 @@
       </div>
 
       <nav class="ciep-footer-links" aria-label="Navegación del pie de página">
-        <a href="index.php">Inicio</a>
+        <a href="/index.php">Inicio</a>
         <a href="#">CIEP</a>
-        <a href="maestria-computacion.php">Maestrías</a>
-        <a href="doctorado-computacion.php">Doctorados</a>
+        <a href="/maestrias/computacion.php">Maestrías</a>
+        <a href="/doctorados/computacion.php">Doctorados</a>
         <a href="#">Investigación</a>
         <a href="#">Admisión</a>
-        <a href="contacto.php">Contactos</a>
+        <a href="/contacto.php">Contactos</a>
       </nav>
 
       <div class="ciep-footer-social">
@@ -33,7 +33,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/site.js"></script>
+<script src="/assets/js/site.js"></script>
 <?php if (!empty($extraScripts)) { echo $extraScripts; } ?>
 </body>
 </html>

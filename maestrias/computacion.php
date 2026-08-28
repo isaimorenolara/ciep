@@ -177,12 +177,12 @@ function ciep_semester_grid(array $semestres): void
     <?php
 }
 
-include __DIR__ . '/includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 
 <main>
-  <?php include __DIR__ . '/includes/pagehead.php'; ?>
-  <?php include __DIR__ . '/includes/program-subnav.php'; ?>
+  <?php include __DIR__ . '/../includes/pagehead.php'; ?>
+  <?php include __DIR__ . '/../includes/program-subnav.php'; ?>
 
   <div class="tab-content">
 
@@ -493,4 +493,4 @@ include __DIR__ . '/includes/header.php';
   </div>
 </main>
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>

@@ -17,19 +17,19 @@ function ciep_link_attrs(array $child): string
 }
 
 $ciepNav = [
-    ['key' => 'inicio', 'label' => 'Inicio', 'href' => 'index.php', 'children' => []],
+    ['key' => 'inicio', 'label' => 'Inicio', 'href' => '/index.php', 'children' => []],
     ['key' => 'ciep', 'label' => 'CIEP', 'href' => null, 'children' => [
-        ['label' => 'Acerca del CIEP', 'href' => null],
+        ['label' => 'Acerca del CIEP', 'href' => '/ciep/acerca.php'],
         ['label' => 'Agenda de actividades', 'href' => null],
         ['label' => 'Calendario escolar', 'href' => null],
-        ['label' => 'Normativa', 'href' => null],
-        ['label' => 'Formatos', 'href' => null],
-        ['label' => 'Intranet', 'href' => null],
+        ['label' => 'Normativa', 'href' => '/ciep/normativa.php'],
+        ['label' => 'Formatos', 'href' => '/ciep/formatos.php'],
+        ['label' => 'Intranet', 'href' => 'http://ciep.ing.uaslp.mx/intranet/', 'external' => true],
         ['label' => 'Facultad de Ingeniería', 'href' => 'https://www.ingenieria.uaslp.mx/', 'external' => true],
     ]],
     ['key' => 'maestrias', 'label' => 'Maestrías', 'href' => null, 'children' => [
         ['label' => 'Ciencias en Geología Aplicada', 'href' => null],
-        ['label' => 'Ingeniería de la Computación', 'href' => 'maestria-computacion.php'],
+        ['label' => 'Ingeniería de la Computación', 'href' => '/maestrias/computacion.php'],
         ['label' => 'Ingeniería de Minerales', 'href' => null],
         ['label' => 'Ingeniería Eléctrica', 'href' => null],
         ['label' => 'Ingeniería Mecánica', 'href' => null],
@@ -39,7 +39,7 @@ $ciepNav = [
         ['label' => 'Tecnología y Gestión del Agua', 'href' => null],
     ]],
     ['key' => 'doctorados', 'label' => 'Doctorados', 'href' => null, 'children' => [
-        ['label' => 'Ciencias de la Computación', 'href' => 'doctorado-computacion.php'],
+        ['label' => 'Ciencias de la Computación', 'href' => '/doctorados/computacion.php'],
         ['label' => 'Ingeniería de Minerales', 'href' => null],
         ['label' => 'Ingeniería Eléctrica', 'href' => null],
         ['label' => 'Ingeniería Mecánica', 'href' => null],
@@ -48,10 +48,14 @@ $ciepNav = [
         ['label' => 'Próximamente', 'href' => null],
     ]],
     ['key' => 'admision', 'label' => 'Admisión', 'href' => null, 'children' => [
-        ['label' => 'Admisión Maestrías', 'href' => 'admision-maestrias.php'],
-        ['label' => 'Admisión Doctorados', 'href' => null],
+        ['label' => 'Admisión Maestrías', 'href' => '/admision/maestrias.php'],
+        ['label' => 'Admisión Doctorados', 'href' => '/admision/doctorados.php'],
+        ['label' => 'EXANI-III', 'href' => '/admision/exani.php'],
+        ['label' => 'Cuotas', 'href' => '/admision/cuotas.php'],
+        ['label' => 'Preinscripción', 'href' => 'http://ciep.ing.uaslp.mx/preinscripcion/', 'external' => true],
+        ['label' => 'Inscripción de materias', 'href' => 'http://ciep.ing.uaslp.mx/intranet/inscripcion/inicio.php', 'external' => true],
     ]],
-    ['key' => 'contactos', 'label' => 'Contactos', 'href' => 'contacto.php', 'children' => []],
+    ['key' => 'contactos', 'label' => 'Contactos', 'href' => '/contacto.php', 'children' => []],
 ];
 ?>
 <!DOCTYPE html>
@@ -61,7 +65,7 @@ $ciepNav = [
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= htmlspecialchars($pageTitle) ?> · CIEP FI UASLP</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 <?php if (!empty($extraHead)) { echo $extraHead; } ?>
 </head>
 <body>
@@ -88,15 +92,15 @@ $ciepNav = [
   <div class="ciep-masthead-inner">
     <div class="ciep-brand">
       <a class="ciep-brand-link" href="https://www.uaslp.mx/" target="_blank" rel="noopener">
-        <img src="assets/img/logo-uaslp.png" alt="Universidad Autónoma de San Luis Potosí" draggable="false">
+        <img src="/assets/img/logo-uaslp.png" alt="Universidad Autónoma de San Luis Potosí" draggable="false">
       </a>
       <span class="ciep-brand-sep" aria-hidden="true"></span>
       <a class="ciep-brand-link" href="https://www.ingenieria.uaslp.mx/" target="_blank" rel="noopener">
-        <img src="assets/img/logo-ingenieria.png" alt="Facultad de Ingeniería UASLP" draggable="false">
+        <img src="/assets/img/logo-ingenieria.png" alt="Facultad de Ingeniería UASLP" draggable="false">
       </a>
       <span class="ciep-brand-sep" aria-hidden="true"></span>
-      <a class="ciep-brand-link" href="index.php">
-        <img src="assets/img/logo-ciep.png" alt="Centro de Investigación y Estudios de Posgrado" draggable="false">
+      <a class="ciep-brand-link" href="/index.php">
+        <img src="/assets/img/logo-ciep.png" alt="Centro de Investigación y Estudios de Posgrado" draggable="false">
       </a>
     </div>
 
@@ -148,7 +152,7 @@ $ciepNav = [
 
 <div class="ciep-mobile-panel" id="ciepMobilePanel">
   <div class="ciep-mobile-panel-head">
-    <img src="assets/img/logo-uaslp.png" alt="UASLP" draggable="false">
+    <img src="/assets/img/logo-uaslp.png" alt="UASLP" draggable="false">
     <button class="ciep-menu-close" type="button" aria-label="Cerrar menú de navegación">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
@@ -161,12 +165,12 @@ $ciepNav = [
           <?php if (empty($item['children'])): ?>
             <a href="<?= htmlspecialchars($item['href'] ?? '#') ?>"<?= ciep_current($item['key'], $activeNav) ?>><?= htmlspecialchars($item['label']) ?></a>
           <?php else: ?>
-            <?php $panelId = 'ciep-sub-' . $item['key']; $isActive = $activeNav === $item['key']; ?>
-            <button type="button" class="ciep-mobile-summary" aria-expanded="<?= $isActive ? 'true' : 'false' ?>" aria-controls="<?= $panelId ?>">
+            <?php $panelId = 'ciep-sub-' . $item['key']; ?>
+            <button type="button" class="ciep-mobile-summary" aria-expanded="false" aria-controls="<?= $panelId ?>">
               <?= htmlspecialchars($item['label']) ?>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
             </button>
-            <div class="ciep-accordion<?= $isActive ? ' is-open' : '' ?>" id="<?= $panelId ?>">
+            <div class="ciep-accordion" id="<?= $panelId ?>">
               <div class="ciep-accordion-inner">
                 <ul class="ciep-mobile-sub">
                   <?php foreach ($item['children'] as $child): ?>

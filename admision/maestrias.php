@@ -5,7 +5,7 @@ $pageHeadEyebrow = 'UASLP · CIEP';
 $pageHeadTitle = 'Admisión a las Maestrías';
 
 $programas = [
-    ['nombre' => 'Maestría en Ing. de la Computación', 'dedicacion' => 'Tiempo parcial', 'pnpc' => 'No', 'admision' => 'Anual en verano', 'examen' => 'Cursos propedéuticos o examen directo', 'href' => 'maestria-computacion.php'],
+    ['nombre' => 'Maestría en Ing. de la Computación', 'dedicacion' => 'Tiempo parcial', 'pnpc' => 'No', 'admision' => 'Anual en verano', 'examen' => 'Cursos propedéuticos o examen directo', 'href' => '/maestrias/computacion.php'],
     ['nombre' => 'Maestría en Geología Aplicada', 'dedicacion' => 'Tiempo completo', 'pnpc' => 'Sí', 'admision' => 'Semestral', 'examen' => 'Examen directo y elegir y preparar un tema', 'href' => null],
     ['nombre' => 'Maestría en Ing. Eléctrica', 'dedicacion' => 'Tiempo completo', 'pnpc' => 'Sí', 'admision' => 'Anual en verano', 'examen' => 'Cursos propedéuticos o examen directo', 'href' => null],
     ['nombre' => 'Maestría en Ing. Mecánica', 'dedicacion' => 'Tiempo completo', 'pnpc' => 'Sí', 'admision' => 'Anual en verano', 'examen' => 'Cursos propedéuticos o examen directo', 'href' => null],
@@ -39,11 +39,11 @@ $documentos = [
     'Acta certificada de nacimiento',
 ];
 
-include __DIR__ . '/includes/header.php';
+include __DIR__ . '/../includes/header.php';
 ?>
 
 <main>
-  <?php include __DIR__ . '/includes/pagehead.php'; ?>
+  <?php include __DIR__ . '/../includes/pagehead.php'; ?>
 
   <section class="ciep-program-section">
     <div class="container-fluid px-lg-2">
@@ -86,7 +86,7 @@ include __DIR__ . '/includes/header.php';
                   <?php if ($programa['href']): ?>
                     <a class="ciep-inline-link" href="<?= htmlspecialchars($programa['href']) ?>">
                       Ver detalles
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.92 6.62a1 1 0 0 0-.54-.54A1 1 0 0 0 17 6H7a1 1 0 0 0 0 2h7.59l-8.3 8.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0L16 9.41V17a1 1 0 0 0 2 0V7a1 1 0 0 0-.08-.38"/></svg>
                     </a>
                   <?php else: ?>
                     <span class="ciep-table-pending">Próximamente</span>
@@ -181,4 +181,4 @@ include __DIR__ . '/includes/header.php';
   </section>
 </main>
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
